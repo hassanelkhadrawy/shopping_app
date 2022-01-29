@@ -20,6 +20,7 @@ class UserData {
   late int credit;
   late String token;
 
+
   UserData.fromjson(Map<String, dynamic> json) {
     this.id = json['id'];
     this.name = json['name'];

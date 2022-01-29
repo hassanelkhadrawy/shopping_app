@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:shopping_app/Data/cached_helper.dart';
 import 'package:shopping_app/constants/Strings/strings.dart';
 
 class WebServices {
   static Dio? dio;
-
   static init() {
     dio = Dio(BaseOptions(
         baseUrl: BaseUrl,
@@ -20,7 +20,7 @@ class WebServices {
     dio!.options.headers = {
       'Content-Type': 'application/json',
       'lang': lang,
-      'Authorization': UserToken};
+      'Authorization': SharedPre.getSharedData(key: "token")};
     return await dio!.post(url, data: data);
   }
 
@@ -32,7 +32,7 @@ class WebServices {
     dio!.options.headers = {
       'Content-Type': 'application/json',
       'lang': lang,
-      'Authorization': UserToken};
+      'Authorization': SharedPre.getSharedData(key: "token")};
     return await dio!.get(url, queryParameters: qury);
   }
 }

@@ -7,9 +7,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shopping_app/Data/Models/Category/category_model.dart';
 import 'package:shopping_app/Data/Models/Home/home_model.dart';
 import 'package:shopping_app/Data/Models/Home/shop.dart';
+import 'package:shopping_app/Data/cached_helper.dart';
 import 'package:shopping_app/Logic/Cubit/ShoppingScreen/shopping_screen_cubit.dart';
 import 'package:shopping_app/constants/Colors/colors.dart';
 import 'package:shopping_app/constants/Componant/componants.dart';
+import 'package:shopping_app/constants/Strings/strings.dart';
 
 class Products extends StatelessWidget {
   const Products({Key? key}) : super(key: key);
@@ -173,10 +175,15 @@ Widget BuildProductItem(ProductsItems productmodel) {
                         decoration: TextDecoration.lineThrough),
                   ),
                 Spacer(),
-               
+
                 CircleAvatar(
+
                   backgroundColor: Colors.grey,
-                  child:Icon(Icons.favorite_border_outlined,color: Colors.white,) ,
+                  child:IconButton(
+                    onPressed: (){
+                      print(UserToken);
+                    },
+                    icon:Icon(Icons.favorite_border_outlined,color: Colors.white,)) ,
                 )
               ])
             ],
